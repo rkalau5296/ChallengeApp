@@ -1,57 +1,48 @@
-﻿int number = 416532122;
-string numberInString = number.ToString();
+﻿using ChallengeApp;
 
-int zero = 0;
-int jeden = 0;
-int dwa = 0;
-int trzy = 0;
-int cztery = 0;
-int piec = 0;
-int szesc = 0;
-int siedem = 0;
-int osiem = 0;
-int dziewiec = 0;
-
-foreach (char c in numberInString)
+List<Employee> employees = new()
 {
-    if (c == '0')
+    new ()
     {
-        zero++;
+        Name = "Paweł",
+        Surname = "Kowalski",        
+        Grades = new List<int>() { 6, 5, 9, 5, 8 }
+    },
+    new ()
+    {
+        Name = "Andrzej",
+        Surname = "Kwiatkowski",        
+        Grades = new List<int>() { 9, 9, 6, 8, 5 }
+    },
+    new ()
+    {
+        Name = "Piotr",
+        Surname = "Nowak",        
+        Grades = new List<int>() { 3, 2, 9, 7, 7 }
     }
-    if (c == '1')
+};
+
+int maxResult = 0;
+Employee? theBestEmployeeResult = null;
+bool isMoreThanOne = false;
+
+foreach (Employee employee in employees)
+{
+    int result = employee.Grades.Sum();
+    if (result > maxResult)
     {
-        jeden++;
+        maxResult = result;
+        theBestEmployeeResult = employee;        
     }
-    if (c == '2')
+    else if (result == maxResult)
     {
-        dwa++;
-    }
-    if (c == '3')
-    {
-        trzy++;
-    }
-    if (c == '4')
-    {
-        cztery++;
-    }
-    if (c == '5')
-    {
-        piec++;
-    }
-    if (c == '6')
-    {
-        szesc++;
-    }
-    if (c == '7')
-    {
-        siedem++;
-    }
-    if (c == '8')
-    {
-        osiem++;
-    }
-    if (c == '9')
-    {
-        dziewiec++;
+        isMoreThanOne = true;
     }
 }
+
+if (isMoreThanOne)
+{
+    Console.WriteLine("Jest więcej niż jeden pracowników z największym wynikiem");
+}
+else
+    Console.WriteLine("Najlepszy wynik posiada pracownik: " + theBestEmployeeResult?.Name + " " + theBestEmployeeResult?.Surname + " " + maxResult);
