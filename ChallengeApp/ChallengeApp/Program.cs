@@ -1,21 +1,57 @@
-﻿string name = "Ewa";
-string gender = "K";
-int age = 33;
+﻿int number = 416532122;
+string numberInString = number.ToString();
 
-if (gender == "K" && age < 30)
-{
-    Console.WriteLine("Kobieta poniżej 30 lat");
-}
-else if (gender == "M" && age < 18)
-{
-    Console.WriteLine("Niepełnoletni mężczyzna");
-}
-else if (name == "Ewa" && age == 33)
-{
-    Console.WriteLine("Ewa, lat 33");
-}
-else
-{
-    Console.WriteLine("" + name + ", lat " + age + "");
-}
+int zero = 0;
+int jeden = 0;
+int dwa = 0;
+int trzy = 0;
+int cztery = 0;
+int piec = 0;
+int szesc = 0;
+int siedem = 0;
+int osiem = 0;
+int dziewiec = 0;
 
+foreach (char c in numberInString)
+{
+    if (c == '0')
+    {
+        zero++;
+    }
+    if (c == '1')
+    {
+        jeden++;
+    }
+    if (c == '2')
+    {
+        dwa++;
+    }
+    if (c == '3')
+    {
+        trzy++;
+    }
+    if (c == '4')
+    {
+        cztery++;
+    }
+    if (c == '5')
+    {
+        piec++;
+    }
+    if (c == '6')
+    {
+        szesc++;
+    }
+    if (c == '7')
+    {
+        siedem++;
+    }
+    if (c == '8')
+    {
+        osiem++;
+    }
+    if (c == '9')
+    {
+        dziewiec++;
+    }
+}
