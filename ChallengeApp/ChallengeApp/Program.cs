@@ -2,39 +2,41 @@
 
 List<Employee> employees = new()
 {
-    new ()
-    {
-        Name = "Paweł",
-        Surname = "Kowalski",        
-        Grades = new List<int>() { 6, 5, 9, 5, 8 }
-    },
-    new ()
-    {
-        Name = "Andrzej",
-        Surname = "Kwiatkowski",        
-        Grades = new List<int>() { 9, 9, 6, 8, 5 }
-    },
-    new ()
-    {
-        Name = "Piotr",
-        Surname = "Nowak",        
-        Grades = new List<int>() { 3, 2, 9, 7, 7 }
-    }
+    new Employee("Paweł", "Kowalski", 22),
+    new Employee("Andrzej", "Kwiatkowski", 32),
+    new Employee("Piotr", "Nowak", 35),    
 };
+
+employees[0].AddScore(5);
+employees[0].AddScore(8);
+employees[0].AddScore(3);
+employees[0].AddScore(8);
+employees[0].AddScore(1);
+
+employees[1].AddScore(9);
+employees[1].AddScore(7);
+employees[1].AddScore(3);
+employees[1].AddScore(8);
+employees[1].AddScore(1);
+
+employees[2].AddScore(1);
+employees[2].AddScore(1);
+employees[2].AddScore(3);
+employees[2].AddScore(8);
+employees[2].AddScore(1);
 
 int maxResult = 0;
 Employee? theBestEmployeeResult = null;
 bool isMoreThanOne = false;
 
 foreach (Employee employee in employees)
-{
-    int result = employee.Grades.Sum();
-    if (result > maxResult)
+{    
+    if (employee.Result > maxResult)
     {
-        maxResult = result;
+        maxResult = employee.Result;
         theBestEmployeeResult = employee;        
     }
-    else if (result == maxResult)
+    else if (employee.Result == maxResult)
     {
         isMoreThanOne = true;
     }
@@ -45,4 +47,4 @@ if (isMoreThanOne)
     Console.WriteLine("Jest więcej niż jeden pracowników z największym wynikiem");
 }
 else
-    Console.WriteLine("Najlepszy wynik posiada pracownik: " + theBestEmployeeResult?.Name + " " + theBestEmployeeResult?.Surname + " " + maxResult);
+    Console.WriteLine("Najlepszy wynik posiada pracownik: " + theBestEmployeeResult?.Name + " " + theBestEmployeeResult?.Lastname + " " + maxResult);

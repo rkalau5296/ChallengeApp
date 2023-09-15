@@ -1,19 +1,19 @@
 ﻿namespace ChallengeApp
 {
-    public class Employee
+    public class User
     {
         private List<int> score = new List<int>();
 
-        public Employee(string name, string lastname, int age)
+        public User(string name, string lastname, int age)
         {
-            this.Name = name;
-            this.Lastname = lastname;
-            this.Age = age;
+            this.name = name;
+            this.lastname = lastname;
+            this.age = age;
         }
 
-        public string Name { get; private set; }
-        public string Lastname { get; private set; }
-        public int Age { get; private set; }
+        public string name { get; private set; }
+        public string lastname { get; private set; }
+        public int age { get; private set; }
         public int Result
         {
             get
