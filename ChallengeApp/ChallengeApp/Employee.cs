@@ -25,5 +25,9 @@
         {
             this.score.Add(number);
         }
+        public void RemoveScore(int number)
+        {
+            this.score.Remove(number);
+        }
     }
 }

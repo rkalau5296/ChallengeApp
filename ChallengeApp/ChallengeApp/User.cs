@@ -4,26 +4,29 @@
     {
         private List<int> score = new List<int>();
 
-        public User(string name, string lastname, int age)
+        public User(string login, string password)
         {
-            this.name = name;
-            this.lastname = lastname;
-            this.age = age;
+            this.Login = login;
+            this.Password = login;            
         }
 
-        public string name { get; private set; }
-        public string lastname { get; private set; }
-        public int age { get; private set; }
-        public int Result
+        public string Login { get; private set; }
+        public string Password { get; private set; }
+        
+        public int Sum
         {
             get
             {
                 return this.score.Sum();
             }
-        }
+        }        
         public void AddScore(int number)
         {
             this.score.Add(number);
+        }
+        public void RemoveScore(int number)
+        {
+            this.score.Remove(number);
         }
     }
 }
