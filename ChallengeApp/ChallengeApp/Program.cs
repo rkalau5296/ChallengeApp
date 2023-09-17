@@ -2,7 +2,8 @@
 
 Employee employee = new Employee("Adam", "Kamizelich");
 
-employee.AddGrade(2);
+employee.AddGrade("2");
+employee.AddGrade("dsafasf");
 employee.AddGrade(2);
 employee.AddGrade(6);
 var statistics = employee.GetStatistics();

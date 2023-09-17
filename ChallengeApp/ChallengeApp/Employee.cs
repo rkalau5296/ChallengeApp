@@ -14,8 +14,94 @@
         public string Lastname { get; private set; }        
         public void AddGrade(float grade)
         {
-            grades.Add(grade);
+            if (grade > 0 && grade <= 100)
+            {
+                grades.Add(grade);
+            }
+            else
+            {
+                Console.WriteLine("Invalid grade value");
+            }
         }
+        public void AddGrade(string grade)
+        {
+            if(float.TryParse(grade, out float result))
+            {
+                AddGrade(float.Parse(grade));
+            }
+            else
+            {
+                Console.WriteLine("String is not float");
+            }
+        }
+        public void AddGrade(double grade)
+        {
+            if (grade > 0 && grade <= 100)
+            {
+                grades.Add((float)grade);
+            }
+            else
+            {
+                Console.WriteLine("Invalid grade value");
+            }            
+        }
+        public void AddGrade(long grade)
+        {
+            if (grade > 0 && grade <= 100)
+            {
+                grades.Add((float)grade);
+            }
+            else
+            {
+                Console.WriteLine("Invalid grade value");
+            }
+        }
+        public void AddGrade(short grade)
+        {
+            if (grade > 0 && grade <= 100)
+            {
+                grades.Add((float)grade);
+            }
+            else
+            {
+                Console.WriteLine("Invalid grade value");
+            }
+        }
+        public void AddGrade(ushort grade)
+        {
+            if (grade > 0 && grade <= 100)
+            {
+                grades.Add((float)grade);
+            }
+            else
+            {
+                Console.WriteLine("Invalid grade value");
+            }
+        }
+        public void AddGrade(uint grade)
+        {
+            if (grade > 0 && grade <= 100)
+            {
+                grades.Add((float)grade);
+            }
+            else
+            {
+                Console.WriteLine("Invalid grade value");
+            }
+        }
+
+        public void AddGrade(int grade)
+        {
+            if (grade > 0 && grade <= 100)
+            {
+                grades.Add((float)grade);
+            }
+            else
+            {
+                Console.WriteLine("Invalid grade value");
+            }
+        }
+
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
