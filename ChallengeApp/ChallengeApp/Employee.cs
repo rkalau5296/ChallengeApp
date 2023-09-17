@@ -60,51 +60,37 @@
             AddGrade((float)grade);
         }
 
-        public Statistics GetStatisticsWithForEach()
+        Statistics statistics = new()
         {
-            Statistics statistics = new()
-            {
-                Average = 0,
-                Max = float.MinValue,
-                Min = float.MaxValue
-            };
+            Average = 0,
+            Max = float.MinValue,
+            Min = float.MaxValue
+        };
+
+        public Statistics GetStatisticsWithForEach()
+        {            
             foreach (var grade in grades)
             {
                 statistics.Max = Math.Max(statistics.Max, grade);
                 statistics.Min = Math.Min(statistics.Min, grade);
                 statistics.Average += grade;
             }
-
             statistics.Average /= grades.Count;
             return statistics;
         }
-
         public Statistics GetStatisticsWithFor()
-        {
-            Statistics statistics = new()
-            {
-                Average = 0,
-                Max = float.MinValue,
-                Min = float.MaxValue
-            };
+        {            
             for (int i=0; i<grades.Count; i++)
             {
                 statistics.Max = Math.Max(statistics.Max, grades[i]);
                 statistics.Min = Math.Min(statistics.Min, grades[i]);
                 statistics.Average += grades[i];
             }
-
             statistics.Average /= grades.Count;
             return statistics;
         }
         public Statistics GetStatisticsWithDoWhile()
-        {
-            Statistics statistics = new()
-            {
-                Average = 0,
-                Max = float.MinValue,
-                Min = float.MaxValue
-            };
+        {            
             int i = 0; 
             do
             {
@@ -113,18 +99,11 @@
                 statistics.Average += grades[i];
                 i++;
             } while (i<grades.Count);
-
             statistics.Average /= grades.Count;
             return statistics;
         }
         public Statistics GetStatisticsWithWhile()
-        {
-            Statistics statistics = new()
-            {
-                Average = 0,
-                Max = float.MinValue,
-                Min = float.MaxValue
-            };
+        {            
             int i = 0;
             while (i < grades.Count) 
             { 
