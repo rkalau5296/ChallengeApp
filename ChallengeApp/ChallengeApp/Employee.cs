@@ -35,71 +35,29 @@
             }
         }
         public void AddGrade(double grade)
-        {
-            if (grade > 0 && grade <= 100)
-            {
-                grades.Add((float)grade);
-            }
-            else
-            {
-                Console.WriteLine("Invalid grade value");
-            }            
+        {            
+            AddGrade((float)grade);
         }
         public void AddGrade(long grade)
         {
-            if (grade > 0 && grade <= 100)
-            {
-                grades.Add((float)grade);
-            }
-            else
-            {
-                Console.WriteLine("Invalid grade value");
-            }
+            AddGrade((float)grade);
         }
         public void AddGrade(short grade)
         {
-            if (grade > 0 && grade <= 100)
-            {
-                grades.Add((float)grade);
-            }
-            else
-            {
-                Console.WriteLine("Invalid grade value");
-            }
+            AddGrade((float)grade);
         }
         public void AddGrade(ushort grade)
         {
-            if (grade > 0 && grade <= 100)
-            {
-                grades.Add((float)grade);
-            }
-            else
-            {
-                Console.WriteLine("Invalid grade value");
-            }
+            AddGrade((float)grade);
         }
         public void AddGrade(uint grade)
         {
-            if (grade > 0 && grade <= 100)
-            {
-                grades.Add((float)grade);
-            }
-            else
-            {
-                Console.WriteLine("Invalid grade value");
-            }
+            AddGrade((float)grade);
         }
 
         public void AddGrade(int grade)
         {
-            if (grade > 0 && grade <= 100)
-            {
-                grades.Add((float)grade);
-            }
-            else
-            {
-                Console.WriteLine("Invalid grade value");
-            }
+            AddGrade((float)grade);
         }
 
         public Statistics GetStatistics()
