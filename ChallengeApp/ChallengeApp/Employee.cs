@@ -3,15 +3,18 @@
     public class Employee
     {
         private List<float> grades = new();
+        public Employee()
+        {
 
+        }
         public Employee(string name, string lastname)
         {
             this.Name = name;
-            this.Lastname = lastname;            
+            this.Lastname = lastname;
         }
 
         public string Name { get; private set; }
-        public string Lastname { get; private set; }        
+        public string Lastname { get; private set; }
         public void AddGrade(float grade)
         {
             if (grade > 0 && grade <= 100)
@@ -25,7 +28,7 @@
         }
         public void AddGrade(string grade)
         {
-            if(float.TryParse(grade, out float result))
+            if (float.TryParse(grade, out float result))
             {
                 AddGrade(float.Parse(grade));
             }
@@ -35,7 +38,7 @@
             }
         }
         public void AddGrade(double grade)
-        {            
+        {
             AddGrade((float)grade);
         }
         public void AddGrade(long grade)
@@ -67,8 +70,8 @@
             Min = float.MaxValue
         };
 
-        public Statistics GetStatisticsWithForEach()
-        {            
+        public Statistics GetStatistics()
+        {
             foreach (var grade in grades)
             {
                 statistics.Max = Math.Max(statistics.Max, grade);
@@ -76,11 +79,59 @@
                 statistics.Average += grade;
             }
             statistics.Average /= grades.Count;
+            switch (statistics.Average)
+            {
+                case var a when a >= 90:
+                    statistics.AverageLetter = 'A';
+                    break;
+                case var a when a >= 60:
+                    statistics.AverageLetter = 'B';
+                    break;
+                case var a when a >= 40:
+                    statistics.AverageLetter = 'C';
+                    break;
+                case var a when a >= 20:
+                    statistics.AverageLetter = 'D';
+                    break;
+                default:
+                    statistics.AverageLetter = 'E';
+                    break;
+            }
             return statistics;
         }
+        public void AddGrade(char grade)
+        {
+            switch (grade)
+            {
+                case 'A':
+                case 'a':
+                    this.grades.Add(100);
+                    break;
+                case 'B':
+                case 'b':
+                    this.grades.Add(80);
+                    break;
+                case 'C':
+                case 'c':
+                    this.grades.Add(60);
+                    break;
+                case 'D':
+                case 'd':
+                    this.grades.Add(40);
+                    break;
+                case 'E':
+                case 'e':
+                    this.grades.Add(20);
+                    break;
+                default:
+                    Console.WriteLine("Wrong letter");
+                    break;
+            }
+        }
+
         public Statistics GetStatisticsWithFor()
-        {            
-            for (int i=0; i<grades.Count; i++)
+        {
+            for (int i = 0; i < grades.Count; i++)
             {
                 statistics.Max = Math.Max(statistics.Max, grades[i]);
                 statistics.Min = Math.Min(statistics.Min, grades[i]);
@@ -90,23 +141,23 @@
             return statistics;
         }
         public Statistics GetStatisticsWithDoWhile()
-        {            
-            int i = 0; 
+        {
+            int i = 0;
             do
             {
                 statistics.Max = Math.Max(statistics.Max, grades[i]);
                 statistics.Min = Math.Min(statistics.Min, grades[i]);
                 statistics.Average += grades[i];
                 i++;
-            } while (i<grades.Count);
+            } while (i < grades.Count);
             statistics.Average /= grades.Count;
             return statistics;
         }
         public Statistics GetStatisticsWithWhile()
-        {            
+        {
             int i = 0;
-            while (i < grades.Count) 
-            { 
+            while (i < grades.Count)
+            {
                 statistics.Max = Math.Max(statistics.Max, grades[i]);
                 statistics.Min = Math.Min(statistics.Min, grades[i]);
                 statistics.Average += grades[i];
