@@ -4,12 +4,12 @@ Console.WriteLine("Witam w programie XYZ do oceny pracowników");
 Console.WriteLine("===========================================");
 Console.WriteLine();
 
-var employee = new Employee();
+var employee = new Employee("Raf", "Kal");
 
 while (true)
 {
     Console.WriteLine("Podaj kolejną ocenę pracownika: ");
-    var input = Console.ReadLine();
+    string? input = Console.ReadLine();
     if(input == "q")
     {
         break;
