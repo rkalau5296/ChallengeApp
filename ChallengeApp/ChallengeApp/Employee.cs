@@ -4,7 +4,7 @@
     {
         private List<float> grades = new();
         
-         public Employee(string name, string surname)
+        public Employee(string name, string surname)
         {
             this.Name = name;
             this.Surname = surname;
