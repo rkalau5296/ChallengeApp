@@ -16,10 +16,10 @@
         {
             if (grade > 0 && grade <= 100)
             {
-                grades.Add(grade);
+                using var writer = File.AppendText(fileName);
                 if (GradeAdded != null)
                 {
-                    GradeAdded(this, new EventArgs()); //this - my sami
+                    GradeAdded(this, new EventArgs());
                 }
             }
             else

@@ -10,7 +10,6 @@
         {
             
         }
-
         
         public override void AddGrade(float grade)
         {
@@ -19,7 +18,7 @@
                 grades.Add(grade);
                 if(GradeAdded != null)
                 {
-                     GradeAdded(this, new EventArgs()); //this - my sami
+                     GradeAdded(this, new EventArgs());
                 }
             }
             else
