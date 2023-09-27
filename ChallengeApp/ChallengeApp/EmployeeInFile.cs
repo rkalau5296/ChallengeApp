@@ -3,7 +3,7 @@
     public class EmployeeInFile : EmployeeBase
     {
         private const string fileName = "grade.txt";
-        public EmployeeInFile(string name, string surname) 
+        public EmployeeInFile(string name, string surname)
             : base(name, surname)
         {
         }
@@ -56,15 +56,18 @@
             Statistics statistics = new()
             {
                 Average = 0,
-                Max = float.MaxValue,
-                Min = float.MinValue,
-            };           
+                Max = grades[0],
+                Min = grades[0]
+            };
 
             foreach (var grade in grades)
             {
-                statistics.Max = Math.Max(statistics.Max, grade);
-                statistics.Min = Math.Min(statistics.Min, grade);
-                statistics.Average += grade;
+                if (grade >= 0)
+                {
+                    statistics.Max = Math.Max(statistics.Max, grade);
+                    statistics.Min = Math.Min(statistics.Min, grade);
+                    statistics.Average += grade;
+                }
             }
             statistics.Average /= grades.Count;
             statistics.AverageLetter = statistics.Average switch
