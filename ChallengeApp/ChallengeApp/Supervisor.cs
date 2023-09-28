@@ -7,6 +7,8 @@
 
         private List<float> grades = new();
 
+        public event EmployeeBase.GradeAddedDelegate GradeAdded;
+
         public void AddGrade(float grade)
         {
             if (grade > 0 && grade <= 100)

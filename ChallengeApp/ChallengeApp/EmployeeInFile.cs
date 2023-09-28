@@ -70,8 +70,8 @@
             Statistics statistics = new()
             {
                 Average = 0,
-                Max = grades[0],
-                Min = grades[0]
+                Max = float.MinValue,
+                Min = float.MaxValue,
             };
 
             foreach (var grade in grades)

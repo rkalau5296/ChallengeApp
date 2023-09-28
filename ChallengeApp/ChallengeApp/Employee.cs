@@ -96,6 +96,8 @@
             Min = float.MaxValue
         };
 
+        public event EmployeeBase.GradeAddedDelegate GradeAdded;
+
         public Statistics GetStatistics()
         {
             foreach (var grade in grades)
