@@ -11,7 +11,6 @@
         {
         }
 
-
         public override void AddGrade(float grade)
         {
             if (grade > 0 && grade <= 100)
@@ -67,32 +66,13 @@
                 }
             }
 
-            Statistics statistics = new()
-            {
-                Average = 0,
-                Max = float.MinValue,
-                Min = float.MaxValue,
-            };
-
+            Statistics statistics = new();
+            
             foreach (var grade in grades)
             {
-                if (grade >= 0)
-                {
-                    statistics.Max = Math.Max(statistics.Max, grade);
-                    statistics.Min = Math.Min(statistics.Min, grade);
-                    statistics.Average += grade;
-                }
+                statistics.AddGrade(grade);
             }
-            statistics.Average /= grades.Count;
-            statistics.AverageLetter = statistics.Average switch
-            {
-                var a when a >= 90 => 'A',
-                var a when a >= 60 => 'B',
-                var a when a >= 40 => 'C',
-                var a when a >= 20 => 'D',
-                _ => 'E',
-            };
-            return statistics;
+            return statistics;            
         }
     }
 }

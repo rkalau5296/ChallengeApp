@@ -7,8 +7,7 @@
         private List<float> grades = new();
         public EmployeeInMemory(string name, string surname)
             : base(name, surname)
-        {
-            
+        {            
         }
         
         public override void AddGrade(float grade)
@@ -29,7 +28,14 @@
 
         public override void AddGrade(string grade)
         {
-            throw new NotImplementedException();
+            if (float.TryParse(grade, out float result))
+            {
+                AddGrade(float.Parse(grade));
+            }
+            else
+            {
+                throw new Exception("String is not float");
+            }
         }
 
         public override void AddGrade(char grade)
@@ -73,7 +79,13 @@
 
         public override Statistics GetStatistics()
         {
-            throw new NotImplementedException();
+            var statistics = new Statistics();
+            
+            foreach (var grade in this.grades)
+            {
+                statistics.AddGrade(grade);
+            }
+            return statistics;
         }
     }      
 }

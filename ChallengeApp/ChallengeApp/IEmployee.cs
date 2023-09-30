@@ -13,6 +13,6 @@ namespace ChallengeApp
         void AddGrade(long grade);
         Statistics GetStatistics();
 
-        public event GradeAddedDelegate GradeAdded;
+        event GradeAddedDelegate GradeAdded;
     }
 }
