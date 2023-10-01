@@ -1,4 +1,6 @@
-﻿namespace ChallengeApp
+﻿using System.Diagnostics;
+
+namespace ChallengeApp
 {
     public class EmployeeInFile : EmployeeBase
     {
@@ -29,31 +31,34 @@
 
         public override void AddGrade(string grade)
         {
-            using var writer = File.AppendText(fileName);
-            writer.WriteLine(grade);
+            Convert(grade);
         }
 
         public override void AddGrade(char grade)
         {
-            using var writer = File.AppendText(fileName);
-            writer.WriteLine(grade);
+            Convert(grade);
         }
 
         public override void AddGrade(double grade)
         {
-            using var writer = File.AppendText(fileName);
-            writer.WriteLine(grade);
+            Convert(grade);
         }
 
         public override void AddGrade(long grade)
         {
-            using var writer = File.AppendText(fileName);
-            writer.WriteLine(grade);
+            if (float.TryParse(grade.ToString(), out _))
+            {
+                AddGrade(float.Parse(grade.ToString()));
+            }
+            else
+            {
+                throw new Exception("String is not float");
+            }
         }
 
         public override Statistics GetStatistics()
         {
-            List<float> grades = new();
+            Statistics statistics = new();
             if (File.Exists($"{fileName}"))
             {
                 using StreamReader reader = File.OpenText($"{fileName}");
@@ -61,18 +66,23 @@
                 while (line != null)
                 {
                     float number = float.Parse(line);
-                    grades.Add(number);
+                    statistics.AddGrade(number);
                     line = reader.ReadLine();
                 }
-            }
-
-            Statistics statistics = new();
-            
-            foreach (var grade in grades)
-            {
-                statistics.AddGrade(grade);
-            }
+            }           
             return statistics;            
+        }
+
+        private void Convert(object? grade)
+        {
+            if (float.TryParse(grade?.ToString(), out _))
+            {
+                AddGrade(float.Parse(grade.ToString()));
+            }
+            else
+            {
+                throw new Exception("String is not float");
+            }
         }
     }
 }
