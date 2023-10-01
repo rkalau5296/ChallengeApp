@@ -46,14 +46,7 @@ namespace ChallengeApp
 
         public override void AddGrade(long grade)
         {
-            if (float.TryParse(grade.ToString(), out _))
-            {
-                AddGrade(float.Parse(grade.ToString()));
-            }
-            else
-            {
-                throw new Exception("String is not float");
-            }
+            Convert(grade);
         }
 
         public override Statistics GetStatistics()
@@ -64,9 +57,8 @@ namespace ChallengeApp
                 using StreamReader reader = File.OpenText($"{fileName}");
                 string? line = reader.ReadLine();
                 while (line != null)
-                {
-                    float number = float.Parse(line);
-                    statistics.AddGrade(number);
+                {                    
+                    statistics.AddGrade(float.Parse(line));
                     line = reader.ReadLine();
                 }
             }           
