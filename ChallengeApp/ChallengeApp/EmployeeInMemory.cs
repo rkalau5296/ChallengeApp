@@ -25,7 +25,6 @@
                 throw new Exception("Invalid grade value");
             }
         }
-
         public override void AddGrade(string grade)
         {
             if (float.TryParse(grade, out float result))
@@ -37,7 +36,6 @@
                 throw new Exception("String is not float");
             }
         }
-
         public override void AddGrade(char grade)
         {
             switch (grade)
@@ -66,17 +64,14 @@
                     throw new Exception("Wrong letter");
             }
         }
-
         public override void AddGrade(double grade)
         {
-            throw new NotImplementedException();
+            AddGrade((float)grade);
         }
-
         public override void AddGrade(long grade)
         {
-            throw new NotImplementedException();
+            AddGrade((float)grade);
         }
-
         public override Statistics GetStatistics()
         {
             var statistics = new Statistics();

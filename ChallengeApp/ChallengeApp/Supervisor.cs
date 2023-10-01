@@ -88,25 +88,20 @@
                     default:
                         throw new Exception("Wrong letter");
                 }
-            }
-            
+            }            
         }
-
         public void AddGrade(char grade)
         {
-            throw new NotImplementedException();
+            AddGrade((float)grade);
         }
-
         public void AddGrade(double grade)
         {
-            throw new NotImplementedException();
+            AddGrade((float)grade);
         }
-
         public void AddGrade(long grade)
         {
-            throw new NotImplementedException();
+            AddGrade((float)grade);
         }
-
         public Statistics GetStatistics()
         {
             throw new NotImplementedException();
