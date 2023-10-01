@@ -28,27 +28,30 @@ namespace ChallengeApp
                 throw new Exception("Invalid grade value");
             }
         }
-
         public override void AddGrade(string grade)
         {
-            Convert(grade);
+            if (float.TryParse(grade, out _))
+            {
+                AddGrade(float.Parse(grade.ToString()));
+            }
+            else
+            {
+                throw new Exception("String is not float");
+            }
         }
-
         public override void AddGrade(char grade)
-        {
-            Convert(grade);
+        {            
+            AddGrade((float)grade);
         }
 
         public override void AddGrade(double grade)
-        {
-            Convert(grade);
+        {            
+            AddGrade((float)grade);
         }
-
         public override void AddGrade(long grade)
         {
-            Convert(grade);
+            AddGrade((float)grade);
         }
-
         public override Statistics GetStatistics()
         {
             Statistics statistics = new();
@@ -63,18 +66,6 @@ namespace ChallengeApp
                 }
             }           
             return statistics;            
-        }
-
-        private void Convert(object? grade)
-        {
-            if (float.TryParse(grade?.ToString(), out _))
-            {
-                AddGrade(float.Parse(grade.ToString()));
-            }
-            else
-            {
-                throw new Exception("String is not float");
-            }
-        }
+        }        
     }
 }
